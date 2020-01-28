@@ -585,7 +585,6 @@ abstract class AbstractProtocMojo extends AbstractMojo {
                     resolutionErrorHandler,
                     localRepository,
                     remoteRepositories,
-                    protocPluginDirectory,
                     getLog());
                 File destinationFile = new File(protocPluginDirectory, plugin.getPluginExecutableName());
                 assembler.execute(destinationFile);
@@ -998,7 +997,7 @@ abstract class AbstractProtocMojo extends AbstractMojo {
         return hexString.toString();
     }
 
-    protected File resolveBinaryArtifact(final Artifact artifact) {
+    protected File resolveArtifact(final Artifact artifact) {
         final ArtifactResolutionResult result;
         try {
             final ArtifactResolutionRequest request = new ArtifactResolutionRequest()
