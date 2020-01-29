@@ -430,7 +430,6 @@ abstract class AbstractProtocMojo extends AbstractMojo {
                             makeProtoPathFromJars(temporaryProtoFileDirectory, getDependencyArtifactFiles());
 
                     FileUtils.mkdir(outputDirectory.getAbsolutePath());
-                    createProtocPlugins();
 
                     if (clearOutputDirectory) {
                         try {
