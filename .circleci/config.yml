@@ -1,4 +1,13 @@
 version: 2
+executors:
+  java:
+    docker:
+      - image: cimg/openjdk:11.0.16
+        auth:
+          username: $DOCKERHUB_LOGIN
+          password: $DOCKERHUB_PASSWORD
+        environment:
+          TERM: dumb
 aliases:
 
   - &sonar-scan
@@ -31,11 +40,7 @@ aliases:
 
 jobs:
   test:
-    docker:
-      - image: cimg/openjdk:11.0.16
-        auth:
-          username: $DOCKERHUB_LOGIN
-          password: $DOCKERHUB_PASSWORD
+    executor: java
     environment:
       MAVEN_OPTS: -Xmx3G
     steps:
@@ -72,11 +77,7 @@ jobs:
       - store_artifacts:
           path: ~/junit
   deploy-artifactory:
-    docker:
-      - image: cimg/openjdk:11.0.16
-        auth:
-          username: $DOCKERHUB_LOGIN
-          password: $DOCKERHUB_PASSWORD
+    executor: java
     environment:
       MAVEN_OPTS: -Xmx3G
     steps:
@@ -89,11 +90,7 @@ jobs:
           key: cache-dependencies-{{ checksum "pom.xml" }}-deploy
 
   sonar:
-    docker:
-      - image: cimg/openjdk:11.0.16
-        auth:
-          username: $DOCKERHUB_LOGIN
-          password: $DOCKERHUB_PASSWORD
+    executor: java
     environment:
       MAVEN_OPTS: -Xmx3G
     steps:
@@ -103,11 +100,7 @@ jobs:
       - run: *sonar-scan
 
   release:
-    docker:
-      - image: cimg/openjdk:11.0.16
-        auth:
-          username: $DOCKERHUB_LOGIN
-          password: $DOCKERHUB_PASSWORD
+    executor: java
     environment:
       MAVEN_OPTS: -Xmx3G
     steps:
