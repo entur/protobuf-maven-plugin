@@ -127,17 +127,17 @@ workflows:
               only: master
     jobs:
       - test:
-          context: org-carbon
+          context: global
       - sonar:
-          context: org-carbon
+          context: global
           requires:
             - test
   build_test_deploy:
     jobs:
       - test:
-          context: org-carbon
+          context: global
       - deploy-artifactory:
-          context: org-carbon
+          context: global
           requires:
             - test
           filters:
@@ -145,7 +145,7 @@ workflows:
               only:
                 - develop
       - release:
-          context: org-carbon
+          context: global
           requires:
             - test
           filters:
