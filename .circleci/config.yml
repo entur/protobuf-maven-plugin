@@ -32,10 +32,10 @@ aliases:
 jobs:
   test:
     docker:
-      - image: eu.gcr.io/entur-system-1287/circleci-toolbox-image-java11
+      - image: cimg/openjdk:11.0.16
         auth:
-          username: _json_key
-          password: $DOCKER_PASSWORD
+          username: $DOCKERHUB_LOGIN
+          password: $DOCKERHUB_PASSWORD
     environment:
       MAVEN_OPTS: -Xmx3G
     steps:
@@ -73,10 +73,10 @@ jobs:
           path: ~/junit
   deploy-artifactory:
     docker:
-      - image: eu.gcr.io/entur-system-1287/circleci-toolbox-image
+      - image: cimg/openjdk:11.0.16
         auth:
-          username: _json_key
-          password: $DOCKER_PASSWORD
+          username: $DOCKERHUB_LOGIN
+          password: $DOCKERHUB_PASSWORD
     environment:
       MAVEN_OPTS: -Xmx3G
     steps:
@@ -90,10 +90,10 @@ jobs:
 
   sonar:
     docker:
-      - image: eu.gcr.io/entur-system-1287/circleci-toolbox-image-java11
+      - image: cimg/openjdk:11.0.16
         auth:
-          username: _json_key
-          password: $DOCKER_PASSWORD
+          username: $DOCKERHUB_LOGIN
+          password: $DOCKERHUB_PASSWORD
     environment:
       MAVEN_OPTS: -Xmx3G
     steps:
@@ -104,10 +104,10 @@ jobs:
 
   release:
     docker:
-      - image: eu.gcr.io/entur-system-1287/circleci-toolbox-image-java11
+      - image: cimg/openjdk:11.0.16
         auth:
-          username: _json_key
-          password: $DOCKER_PASSWORD
+          username: $DOCKERHUB_LOGIN
+          password: $DOCKERHUB_PASSWORD
     environment:
       MAVEN_OPTS: -Xmx3G
     steps:
