@@ -36,7 +36,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <grpcVersion>1.7.0</grpcVersion>
+        <grpcVersion>1.53.0</grpcVersion>
     </properties>
 
     <build>
@@ -139,7 +139,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <version>4.13.1</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -175,7 +175,7 @@
             <id>protoc-3.11.1</id>
 
             <properties>
-                <protobufVersion>3.11.1</protobufVersion>
+                <protobufVersion>3.25.5</protobufVersion>
             </properties>
 
             <dependencies>
