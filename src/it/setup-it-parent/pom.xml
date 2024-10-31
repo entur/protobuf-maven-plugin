@@ -41,7 +41,7 @@
 
         <mavenVersion>3.3.9</mavenVersion>
 
-        <protobufVersion>3.11.1</protobufVersion>
+        <protobufVersion>3.25.5</protobufVersion>
         <protobufJavaArtifact>protobuf-java</protobufJavaArtifact>
     </properties>
 
@@ -171,7 +171,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <version>4.13.1</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
